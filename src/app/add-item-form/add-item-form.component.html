@@ -1,0 +1,28 @@
+<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field is-narrow">
+        <label for="amount" class="label">Amount</label>
+        <div class="control">
+          <input type="number" id="amount" name="amount" required formControlName="amount" class="input"
+            placeholder="Amount" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="description" class="label">Description</label>
+        <div class="control">
+          <input type="text" id="description" name="description" required formControlName="description" class="input"
+            placeholder="Description" />
+        </div>
+      </div>
+
+      <div class="field is-narrow">
+        <button type="submit" class="button" [ngClass]="{ 'is-primary': isNewItem, 'is-success': !isNewItem }"
+          [disabled]="!itemForm.valid">
+          {{ isNewItem ? 'Add' : 'Save' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

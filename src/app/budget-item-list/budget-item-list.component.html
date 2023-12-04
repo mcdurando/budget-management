@@ -5,10 +5,14 @@
       <h1>Income</h1>
 
       <div class="budget-items">
-        <div *ngFor="let item of budgetItems">
-          <app-budget-item-card *ngIf="item.amount >= 0" [item]="item" (xButtonClick)="onDeleteButtonClicked(item)"
-            (cardClick)="onCardClicked(item)" style="display:block; margin-bottom: 20px"></app-budget-item-card>
-        </div>
+        @for(item of budgetItems; track item) {
+          <div>
+            @if(item.amount >= 0) {
+              <app-budget-item-card [item]="item" (xButtonClick)="onDeleteButtonClicked(item)"
+                (cardClick)="onCardClicked(item)" style="display:block; margin-bottom: 20px"></app-budget-item-card>
+            }
+          </div>
+        }
       </div>
     </div>
 
@@ -17,10 +21,14 @@
       <h1>Expenses</h1>
 
       <div class="budget-items">
-        <div *ngFor="let item of budgetItems">
-          <app-budget-item-card *ngIf="item.amount < 0" [item]="item" (xButtonClick)="onDeleteButtonClicked(item)"
-            (cardClick)="onCardClicked(item)" style="display:block; margin-bottom: 20px"></app-budget-item-card>
-        </div>
+        @for(item of budgetItems; track item) {
+          <div>
+            @if(item.amount < 0) {
+              <app-budget-item-card [item]="item" (xButtonClick)="onDeleteButtonClicked(item)"
+              (cardClick)="onCardClicked(item)" style="display:block; margin-bottom: 20px"></app-budget-item-card>
+            }
+          </div>
+        }
       </div>
     </div>
 

@@ -35,8 +35,7 @@ export class AddItemFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.itemForm.invalid) return;
-
     this.formSubmit.emit(this.itemForm.value);
     this.itemForm.reset();
   }
-}
+} 
